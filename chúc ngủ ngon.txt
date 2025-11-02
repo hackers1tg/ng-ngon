@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc Ngủ Ngon 🌙</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.8;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #a6e3ff, 0 0 30px #7ad7ff;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 40px #80dfff, 0 0 60px #33bbff;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sao băng */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, transparent);
+      top: 0;
+      animation: shoot 3s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(500px, 500px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌙 Chúc bạn ngủ ngon nhé 💫</h1>
+  <p>Hãy để những vì sao ru bạn vào giấc mơ đẹp ✨</p>
+
+  <script>
+    // Tạo sao băng ngẫu nhiên
+    function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.top = Math.random() * 200 + "px";
+      star.style.animationDuration = (Math.random() * 2 + 1.5) + "s";
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 3000);
+    }
+    setInterval(createStar, 400);
+  </script>
+</body>
+</html>
